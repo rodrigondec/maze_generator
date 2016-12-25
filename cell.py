@@ -4,7 +4,7 @@ class Cell(object):
 		super(Cell, self).__init__()
 		self.id = Cell.identificador
 		self.parent = self	
-		self.rank = 0
+		self.childs = []
 		self.reset_string()
 		Cell.identificador += 1	
 
@@ -20,13 +20,16 @@ class Cell(object):
 		self.top = '< >'
 
 	def abrir_direita(self):
-		self.mid = '|  '
+		if self.mid == '| |':
+			self.mid = '|  '
+		elif self.mid == '  |':
+			self.mid = '   '
 
 	def abrir_esquerda(self):
-		self.mid = '  |'
-
-	def abrir_mid(self):
-		self.mid = '   '
+		if self.mid == '| |':
+			self.mid = '  |'
+		elif self.mid == '|  ':
+			self.mid = '   '
 
 	def __str__(self):
 		return str(self.id)+"|"+str(self.parent.id)
