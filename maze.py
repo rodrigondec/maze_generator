@@ -11,8 +11,8 @@ class Maze(object):
 		
 	def connected(self):
 		roots = []
-		for i in range(0, linhas):
-			for cell in maze[i]:
+		for i in range(0, self.linhas):
+			for cell in self.mapa[i]:
 				roots.append(find(cell))
 
 		for root_1 in roots:
@@ -57,10 +57,13 @@ class Maze(object):
 			string += '\n'
 		return string
 
+# maze = Maze(12, 12)
 
-# for i in range(0, linhas):
-# 	for cell in maze[i]:
-# 		print(find(cell).id)
+# for i in range(0, 12):
+# 	for j in range(1, 12):
+# 		maze.conectar(Index(i, j-1), Index(i, j))
 
-# print_m(maze, linhas, colunas)
+# for i in range(1, 12):
+# 	maze.conectar(Index(i-1, 0), Index(i, 0))
 
+# print(maze)
