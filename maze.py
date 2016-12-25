@@ -30,19 +30,32 @@ class Maze(object):
 
 		if index_1.linha <
 
-	def __str__(self):
-		for i in range(0, linhas):
-			if i == 0:
-				for j in range(0, colunas):
-					print(self.mapa[i][j].top, end='')
-				print('')
-			for j in range(0, colunas):
-				print(self.mapa[i][j].mid, end='')
-			print('')
-			for j in range(0, colunas):
-				print(self.mapa[i][j].bot, end='')
+	def print_c(self):
+		for i in range(0, self.linhas):
+			for cell in self.mapa[i]:
+				print(str(cell)+', ', end='')
 			print('')
 
+	def __str__(self):
+		string = ''
+		for i in range(0, self.linhas):
+			if i == 0:
+				for j in range(0, self.colunas):
+					# print(self.mapa[i][j].top, end='')
+					string += self.mapa[i][j].top
+				# print('')
+				string += '\n'
+			for j in range(0, self.colunas):
+				# print(self.mapa[i][j].mid, end='')
+				string += self.mapa[i][j].mid
+			# print('')
+			string += '\n'
+			for j in range(0, self.colunas):
+				# print(self.mapa[i][j].bot, end='')
+				string += self.mapa[i][j].bot
+			# print('')
+			string += '\n'
+		return string
 
 
 # for i in range(0, linhas):
