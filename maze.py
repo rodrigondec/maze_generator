@@ -22,13 +22,27 @@ class Maze(object):
 		return True
 
 	def conectar(self, index_1, index_2):
-		if index_1.linha
 		celula_1 = self.mapa[index_1.linha][index_1.coluna]
 		celula_2 = self.mapa[index_2.linha][index_2.coluna]
 
 		union(celula_1, celula_2)
 
-		if index_1.linha <
+		if index_1.linha < index_2.linha:
+			# celula_1 está em cima
+			self.mapa[index_1.linha][index_1.coluna].abrir_bot()
+			self.mapa[index_2.linha][index_2.coluna].abrir_top()
+		elif index_1.linha > index_2.linha:
+			# celula_1 está em baixo
+			self.mapa[index_1.linha][index_1.coluna].abrir_top()
+			self.mapa[index_2.linha][index_2.coluna].abrir_bot()
+		elif index_1.coluna < index_2.coluna:
+			# celula_1 está a esquerda
+			self.mapa[index_1.linha][index_1.coluna].abrir_direita()
+			self.mapa[index_2.linha][index_2.coluna].abrir_esquerda()
+		elif index_1.coluna > index_2.coluna:
+			# celula_1 está a direita
+			self.mapa[index_1.linha][index_1.coluna].abrir_esquerda()
+			self.mapa[index_2.linha][index_2.coluna].abrir_direita()
 
 	def print_c(self):
 		for i in range(0, self.linhas):
