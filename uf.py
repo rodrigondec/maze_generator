@@ -5,12 +5,13 @@ def union(x, y):
 	if xRoot == yRoot:
 		return
 
-	if xRoot.rank < yRoot.rank:
-		xRoot.parent = yRoot
-		yRoot.rank += 1
-	elif xRoot.rank >= yRoot.rank:
-		yRoot.parent = xRoot
-		xRoot.rank += 1
+	yRoot.parent = xRoot
+	xRoot.childs.append(yRoot)
+	for child in yRoot.childs:
+		union(xRoot, child)
+		xRoot.childs.append(child)
+	for child in yRoot.childs:
+		yRoot.childs.remove(child)
 
 def find(x):
 	if x.parent != x:
