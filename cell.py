@@ -1,10 +1,11 @@
 class Cell(object):
 	identificador = 1
-	def __init__(self):
+	def __init__(self, index):
 		super(Cell, self).__init__()
 		self.id = Cell.identificador
 		self.parent = self	
-		self.childs = []
+		self.rank = 0
+		self.index = index
 		self.reset_string()
 		Cell.identificador += 1	
 
